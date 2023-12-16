@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Comparison</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+    }
+
+    button:first-child {
+      background-color: #3498db;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    button:first-child:hover {
+      background-color: #2e86c1;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  function compareAndDisplay() {
+    // Get user inputs
+    var firstInput = parseFloat(prompt("請輸入第1個數字："));
+    var secondInput = parseFloat(prompt("請輸入第2個數字："));
+
+    // Compare inputs and update styles
+    if (firstInput > secondInput) {
+      document.body.style.backgroundColor = 'lightblue';
+      alert(firstInput + " > " + secondInput);
+    } else if (secondInput > firstInput) {
+      document.body.style.backgroundColor = 'orange';
+      alert(secondInput + " > " + firstInput);
+    } else {
+      document.body.style.backgroundColor = 'lightyellow';
+      alert(secondInput + " == " + firstInput);
+    }
+
+    // Create buttons to display individual inputs
+    var showFirstInputButton = document.createElement("button");
+    showFirstInputButton.textContent = "顯示第1個數字";
+    showFirstInputButton.onclick = function() {
+      alert("第1個數字：" + firstInput);
+    };
+    document.body.appendChild(showFirstInputButton);
+
+    var showSecondInputButton = document.createElement("button");
+    showSecondInputButton.textContent = "顯示第2個數字";
+    showSecondInputButton.onclick = function() {
+      alert("第2個數字：" + secondInput);
+    };
+    document.body.appendChild(showSecondInputButton);
+  }
+
+  // Call the function when the page loads
+  window.onload = compareAndDisplay;
+</script>
+
+</body>
+</html>
